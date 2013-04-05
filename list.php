@@ -44,13 +44,22 @@ $check = ($password == 'test' && $username = 'test');
                     if ($handle) {
                         while (($buffer = fgets($handle, 4096)) !== false) {
                             $data = json_decode($buffer);
-                            echo '<br><br><hr>'.$data->name.'<br>';
-                            echo '<table class="table table-striped"><thead>'.
-                                    '<tr><th class="span2">#</th><th>Cevaplar</th></tr></thead><tbody>';
-                            foreach ($data->a as $k => $v) {
-                                echo '<tr><td>'.$k.
-                                        '</td><td><span class="badge badge-warning">'.
-                                        implode('</span> <span class="badge badge-warning">',$v).'</span></tr></tr>';
+                            echo '<br><br><hr><p class="well">' .
+                            'Name : ' . $data->name . '<br>' .
+                            'Avg. : ' . $data->avg . '<br>' .
+                            'Age : ' . $data->age . '<br>' .
+                            'Game : ' . $data->game . '<br>' .
+                            'Gender : ' . $data->gender . '<br></p>';
+                            echo '<table class="table table-striped"><thead>' .
+                            '<tr><th class="span2">#</th><th>Cevaplar</th><th>Puan</th></tr></thead><tbody>';
+                            foreach (range(1, 23) as $i) {
+                                $key1 = 'answer_' . $i;
+                                $key2 = 'point_' . $i;
+                                echo '<tr><td>Cevap ' . $i .
+                                '</td><td><span class="badge badge-warning">' .
+                                implode('</span> <span class="badge badge-warning">', $data->a->$key1) .
+                                '</span></td>' .
+                                '<td>' . $data->a->$key2 . '</tr>';
                             }
                             echo '</tbody></table>';
                         }
