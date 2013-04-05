@@ -81,13 +81,7 @@
                 <p>&copy; 2013</p>
             </footer>
 
-        </div> 
-
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap-transition.js"></script>
-        <script src="js/bootstrap-scrollspy.js"></script>
-        <script src="js/bootstrap-button.js"></script>
-        <script src="js/bootstrap-typeahead.js"></script>
+        </div>         
 
     </body>
 </html>
