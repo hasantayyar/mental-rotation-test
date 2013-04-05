@@ -1,13 +1,16 @@
 <?php
-$name = isset($_POST['name'])?$_POST['name']:null;
-$surname = isset($_POST['surname'])?$_POST['surname']:null;
-$email = isset($_POST['email'])?$_POST['email']:null;
-$data = array('name'=>$name,'surname'=>$surname , 'email'=>$email);
-foreach(range(1,23) as $q){
-    $data['a']['answer_'.$q] = isset($_POST['c'.$q])?$_POST['c'.$q]:null;
+include 'answers.php';
+$name = isset($_POST['name']) ? $_POST['name'] : null;
+$data = array('name' => $name);
+echo "<pre>";
+foreach (range(1, 23) as $q) {
+    $tmpanswers = $data['a']['answer_' . $q] = isset($_POST['c' . $q]) ? $_POST['c' . $q] : null;
+    $check = ($tmpanswers === $answers[$q-1]);
+    $data['a']['point_' . $q] = $check ? 1 : 0;
 }
+
 $file = fopen('./data.txt', 'a');
-fwrite($file, json_encode($data)."\n");
+fwrite($file, json_encode($data) . "\n");
 fclose($file);
 ?>
 

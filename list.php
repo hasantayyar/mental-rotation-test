@@ -44,7 +44,7 @@ $check = ($password == 'test' && $username = 'test');
                     if ($handle) {
                         while (($buffer = fgets($handle, 4096)) !== false) {
                             $data = json_decode($buffer);
-                            echo '<br><br><hr>'.$data->name . ' ' . $data->surname . ' / ' . $data->email . '<br>';
+                            echo '<br><br><hr>'.$data->name.'<br>';
                             echo '<table class="table table-striped"><thead>'.
                                     '<tr><th class="span2">#</th><th>Cevaplar</th></tr></thead><tbody>';
                             foreach ($data->a as $k => $v) {
