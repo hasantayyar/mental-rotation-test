@@ -35,6 +35,32 @@ $check = ($password == 'test' && $username = 'test');
                         Bu test Shepard ve Metzler (1978) tarafından hazırlanan şekillerden oluşmaktadır. Ayrıca Vandenberg & Kuse MRT testinin bir çeşididir.
                     </p>
                     <p><a href="#" class="label label-info">(Michael Peters, PhD (1995) izni ile) </a></p>
+
+
+                    <hr />
+                    <h2>Cevaplar</h2>
+                    <?php
+                    $handle = @fopen("./data.txt", "r");
+                    if ($handle) {
+                        while (($buffer = fgets($handle, 4096)) !== false) {
+                            $data = json_decode($buffer);
+                            echo '<br><br><hr>'.$data->name . ' ' . $data->surname . ' / ' . $data->email . '<br>';
+                            echo '<table class="table table-striped"><thead>'.
+                                    '<tr><th class="span2">#</th><th>Cevaplar</th></tr></thead><tbody>';
+                            foreach ($data->a as $k => $v) {
+                                echo '<tr><td>'.$k.
+                                        '</td><td><span class="badge badge-warning">'.
+                                        implode('</span> <span class="badge badge-warning">',$v).'</span></tr></tr>';
+                            }
+                            echo '</tbody></table>';
+                        }
+                        if (!feof($handle)) {
+                            echo "Error: unexpected fgets() fail\n";
+                        }
+                        fclose($handle);
+                    }
+                    ?>
+
                 </div>
                 <br />
                 <hr />
