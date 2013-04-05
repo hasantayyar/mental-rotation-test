@@ -8,7 +8,7 @@ $data['game'] = isset($_POST['game']) ? $_POST['game'] : null;
 $data['gender'] = isset($_POST['gender']) ? $_POST['gender'] : null;
 
 $totalPoint = 0;
-foreach (range(1, 23) as $q) {
+foreach (range(1, 24) as $q) {
     $tmpanswers = $data['a']['answer_' . $q] = isset($_POST['c' . $q]) ? $_POST['c' . $q] : null;
     $check = ($tmpanswers === $answers[$q-1]);
     $point = $check ? 1 : 0;

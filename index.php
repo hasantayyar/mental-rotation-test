@@ -2,6 +2,13 @@
 <html lang="en">
     <head>
         <?php include 'meta.php'; ?>
+        <style>
+            .itemx{
+                width:130px;
+                display: block;
+                float:left;
+            }
+        </style>
     </head>
     <body>
         <?php include 'navbar.php'; ?>
@@ -31,7 +38,7 @@
                         ?>
                         <!-- ornek sorular -->
                         <div class="qs_o" id="qo<?php echo $q; ?>" style="<?php echo $q > 1 ? 'display:none' : ''; ?>">
-                            <legend><span class="badge badge-warning">Soru <strong><?php echo $q; ?></strong></span></legend>
+                            <legend><span class="badge badge-warning">Örnek <strong><?php echo $q; ?></strong></span></legend>
                             <img src="img/o<?php echo $q; ?>.png" alt="soru" />
                             <div class="row"></div>
                             <div class="pull-left" style="width: 143px;display: block;">&nbsp;</div>
@@ -116,11 +123,11 @@
             </div>
             <a href="#test" id="test"></a>
             <br><br><br><br>
-            <div class="row">
-                <div class="span12">
+            <div class="hero-unit">
+                <div ckass="row">
                     <h2>Test</h2>
                     <p>Aşağıda her soruda beşer tane şekil görülmektedir.</p>
-                    <p>Sağdaki 1, 2, 3 ve 4 numaralı şekillerden yalnızca iki tanesi soldaki nesnenin döndürülmesiyle oluşturulmuştur. 
+                    <p>Sağdaki A,B,C ve D şıklarındaki şekillerden yalnızca iki tanesi soldaki nesnenin döndürülmesiyle oluşturulmuştur. 
                         Her sorudaki bu iki şekli bulunuz ve işaretleyiniz. 
                         Her iki şekli de doğru işaretlediğiniz zaman sorudan tam puan alacaksınız.
                     </p>
@@ -131,49 +138,47 @@
                             <legend>Kişisel bilgileriniz</legend>
                             <label for="name"></label>
                             <input type="text" name="name" value="" placeholder="Adınız" />
-
                             <label for="avg"></label>
                             <input type="text" name="avg" value="" placeholder="Akademik ortalama"/>
-
                             <label for="age"></label>
                             <input type="text" name="age" value="" placeholder="Yaşınız"/>
+                            <hr />
 
                             <label>Bilgisayar oyunları oynar mısınız?</label>
                             <label><input type="radio" name="game" value="1"/> Evet</label>
                             <label><input type="radio" name="game" value="0"/> Hayir</label>
-
+                            <hr />
                             <label for="gender">Cinsiyet</label>
                             <select name="gender" placeholder="Cinsiyet">
                                 <option value="F" selected="selected">K</option>
                                 <option value="M">E</option>
                             </select>
-
-
                             <hr />
+
 
                             <?php
                             foreach (range(1, 24) as $q) {
                                 ?>
                                 <div class="qs" id="q<?php echo $q; ?>" style="<?php echo $q > 1 ? 'display:none' : ''; ?>">
                                     <legend><span class="badge badge-warning">Soru <strong><?php echo $q; ?></strong></span></legend>
-                                    <img src="img/<?php echo $q; ?>.png" alt="soru" />
+                                    <img  width="700px" src="img/<?php echo $q; ?>.png" alt="soru" />
                                     <div class="row"></div>
-                                    <div class="pull-left" style="width: 143px;display: block;">&nbsp;</div>
-                                    <label class="pull-left span1">
+                                    <div class="pull-left" style="width: 240px;display: block;">&nbsp;</div>
+                                    <label class="pull-left itemx">
                                         <input type="checkbox" name="c<?php echo $q; ?>[]" value="A"> <span class="badge badge-success">A</span>
                                     </label>
-                                    <label class="pull-left span1">
+                                    <label class="pull-left itemx">
                                         <input type="checkbox" name="c<?php echo $q; ?>[]" value="B"> <span class="badge badge-success">B</span>
                                     </label>
-                                    <label class="pull-left span1">
+                                    <label class="pull-left itemx">
                                         <input type="checkbox" name="c<?php echo $q; ?>[]" value="C"> <span class="badge badge-success">C</span>
                                     </label>
-                                    <label class="pull-left span1">
+                                    <label class="pull-left itemx">
                                         <input type="checkbox" name="c<?php echo $q; ?>[]" value="D"> <span class="badge badge-success">D</span>
                                     </label>
                                     <div class="row"></div>
                                     <div class="row span4">
-                                        <?php if ($q == 23) {
+                                        <?php if ($q == 24) {
                                             ?>
                                             <p><input class="btn btn-primary" type="submit" value="Cevapları Gönder &raquo;" /></p>
                                         <?php } else {

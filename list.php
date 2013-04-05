@@ -52,7 +52,7 @@ $check = ($password == 'test' && $username = 'test');
                             'Gender : ' . $data->gender . '<br></p>';
                             echo '<table class="table table-striped"><thead>' .
                             '<tr><th class="span2">#</th><th>Cevaplar</th><th>Puan</th></tr></thead><tbody>';
-                            foreach (range(1, 23) as $i) {
+                            foreach (range(1, 24) as $i) {
                                 $key1 = 'answer_' . $i;
                                 $key2 = 'point_' . $i;
                                 echo '<tr><td>Cevap ' . $i .
