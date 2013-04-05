@@ -1,7 +1,7 @@
 Mental Rotaion Test Demo Application
 ====================================
 
-Demo : [hasantayyar.com/zihin-dondurme-project](hasantayyar.com/zihin-dondurme-project)
+Demo : [hasantayyar.com/zihin-dondurme-project](http://hasantayyar.com/zihin-dondurme-project)
 
 Bu test Shepard ve Metzler (1978) tarafından hazırlanan şekillerden oluşmaktadır. Ayrıca Vandenberg & Kuse MRT testinin bir çeşididir.
 
